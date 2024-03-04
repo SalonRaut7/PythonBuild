@@ -2,23 +2,23 @@ from datetime import datetime
 class remainder:
     def remember_event():
         date_event = {}
-        flag = True
-        while flag:
-            choice = input('Do you want to remember something: ')
+        while True:
+            choice = input('Do you want to remember something(yes/no): ')
             if choice.lower() == 'yes':
                 date = input('Enter the important date: ')
                 event = input('Enter the event for the date: ')
                 date_event[date] =event
                 print('Sucessfully Remembered')
-            if choice.lower() == 'no':
-                flag = False
+            elif choice.lower() == 'no':
+                break
+            else:
+                print('Invalid choice. Please enter yes or no.')
         return date_event
     
     def check_event(date_event):
         current_datetime = datetime.now()
         current_date = str(current_datetime.date())
         keys = list(date_event.keys())
-
         values = list(date_event.values())
         for value in keys:
             if  current_date == value:
